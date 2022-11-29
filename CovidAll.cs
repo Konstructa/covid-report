@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json;
 
-namespace WebApplication1
+namespace CovidReport
 {
     public class CovidAll
     {
