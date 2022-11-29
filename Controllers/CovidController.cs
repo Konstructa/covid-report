@@ -1,4 +1,6 @@
 ﻿using System.IO;
+using CovidReport.DTO;
+using CovidReport.Services;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
+using CovidReport.DTO;
 
-namespace CovidReport
+namespace CovidReport.Services
 {
     public static class FileService
     {

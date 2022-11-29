@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json;
 
-namespace CovidReport
+namespace CovidReport.DTO
 {
     public class CovidAll
     {
@@ -70,7 +70,7 @@ namespace CovidReport
 
         public override string ToString()
         {
-            string csvFormat = 
+            string csvFormat =
                 $"updated, todayCases, todayDeaths, todayRecovered {Environment.NewLine}" +
                 $"{Updated}, {TodayCases}, {TodayDeaths}, {TodayRecovered}";
 

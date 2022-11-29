@@ -3,9 +3,9 @@ using Microsoft.AspNetCore.Hosting.Server;
 using Newtonsoft.Json;
 using System.Net;
 
-namespace CovidReport
+namespace CovidReport.Services
 {
-    public class GetServer 
+    public class GetServer
     {
         [JsonProperty("status")]
         public string Status { get; set; }
@@ -14,7 +14,7 @@ namespace CovidReport
         public Data Data { get; set; }
     }
 
-    public class Data 
+    public class Data
     {
         [JsonProperty("server")]
         public string Server { get; set; }
@@ -39,7 +39,7 @@ namespace CovidReport
 
         public MultipartFormDataContent MakeContentRequest(IConfiguration _config, string path)
         {
-            
+
 
             var fileName = Path.GetFileName(path);
 
