@@ -30,6 +30,10 @@ namespace CovidReport.Controllers
 
             CovidAll covid = JsonConvert.DeserializeObject<CovidAll>(jsonResponse);
 
+            var file = FileService.CreateFile(covid);
+
+            await new SendService().SendFormData(_config, file);
+
             return covid;
         }
 
