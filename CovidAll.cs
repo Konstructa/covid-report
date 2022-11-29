@@ -67,5 +67,14 @@ namespace CovidReport
 
         [JsonProperty("affectedCountries")]
         public int AffectedCountries { get; set; }
+
+        public override string ToString()
+        {
+            string csvFormat = 
+                $"updated, todayCases, todayDeaths, todayRecovered {Environment.NewLine}" +
+                $"{Updated}, {TodayCases}, {TodayDeaths}, {TodayRecovered}";
+
+            return csvFormat;
+        }
     }
 }
