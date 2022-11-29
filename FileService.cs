@@ -1,6 +1,8 @@
-﻿namespace CovidReport
+﻿using System.Collections;
+
+namespace CovidReport
 {
-    public class FileService
+    public static class FileService
     {
         public static string CreateFile(CovidAll covidAll)
         {
@@ -8,9 +10,9 @@
 
             Directory.CreateDirectory(path + @"\reports");
 
-            var fileName = $"report-{DateTime.Now.Date}.csv";
+            var fileName = $"report{DateTime.Now.Date.ToString("dd-MM-yyyy", System.Globalization.CultureInfo.InvariantCulture)}.csv";
 
-            var targetPath = Path.GetDirectoryName(path) + @"\reports\" + fileName;
+            var targetPath = path + @"\reports\" + fileName;
 
             using (StreamWriter streamWriter = File.AppendText(targetPath))
             {
@@ -30,6 +32,17 @@
             {
                 Console.WriteLine(e.Message);
             }
+        }
+
+        public static ByteArrayContent GetFile(string path)
+        {
+            //FileStream fileStream = new FileStream(path, FileMode.Open, FileAccess.Read);
+
+            byte[] file = File.ReadAllBytes(path);
+
+            var imageContent = new ByteArrayContent(file);
+
+            return imageContent;
         }
     }
 }
