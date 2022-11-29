@@ -1,4 +1,4 @@
-﻿
+﻿using System.IO;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 
@@ -9,10 +9,12 @@ namespace CovidReport.Controllers
     public class CovidController : ControllerBase
     {
         private readonly ILogger<CovidController> _logger;
+        private readonly IConfiguration _config;
 
-        public CovidController(ILogger<CovidController> logger)
+        public CovidController(ILogger<CovidController> logger, IConfiguration config)
         {
             _logger = logger;
+            _config = config;
         }
 
         [HttpGet(Name = "GetCovidAll")]
@@ -29,7 +31,7 @@ namespace CovidReport.Controllers
             CovidAll covid = JsonConvert.DeserializeObject<CovidAll>(jsonResponse);
 
             return covid;
-
         }
+
     }
 }
